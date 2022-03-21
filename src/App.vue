@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="container">
+    <div class="container text-left">
       <Todos />
     </div>
   </div>
@@ -9,7 +9,6 @@
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 import Todos from "./components/Todos.vue";
-import store from "./store";
 export default {
   name: "App",
   components: {
@@ -24,7 +23,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
