@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Todos</h3>
+    <h3 class="mb-5">All Todos ({{ countTodos }})</h3>
     <div class="todos">
       <div v-for="todo in allTodos" :key="`todo_key_${todo.id}`" class="todo">
         {{ todo.title }}
@@ -9,11 +9,34 @@
   </div>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Todos",
-  computed: mapGetters(["allTodos"]),
+  computed: mapGetters(["allTodos", "countTodos"]),
+  created() {
+    this.fetchTodos();
+  },
+  methods: {
+    ...mapActions(["fetchTodos"]),
+  },
 };
 </script>
   
+
+<style scoped>
+.todos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+.todo {
+  border: 1px solid #ccc;
+  background-color: #41b883;
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+</style>
